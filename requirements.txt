@@ -1,0 +1,5 @@
+groq
+pymupdf
+reportlab
+flask
+pillow

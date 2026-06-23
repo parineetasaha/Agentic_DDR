@@ -167,8 +167,7 @@ def cleanup(job_id):
 
 
 if __name__ == '__main__':
-    port = 5000
-    print(f"\n  Agentic DDR running at http://localhost:{port}")
-    print("  Opening browser...\n")
-    webbrowser.open(f"http://localhost:{port}")
-    app.run(debug=False, port=port)
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "").lower() == "true"
+    print(f"\n  Agentic DDR running on port {port}")
+    app.run(host="0.0.0.0", debug=debug, port=port)
